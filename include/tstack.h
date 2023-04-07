@@ -5,9 +5,11 @@
 
 template<typename T, int size>
 class Stack {
+
 private:
     T arr[100];
     int top;
+
 public:
     Stack() :top(-1) {}
     void push(T value) {
