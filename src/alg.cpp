@@ -18,7 +18,12 @@ int prioritet(char value) {
 std::string infx2pstfx(std::string inf) {
     std::string post;
     for (int q = 0; q < inf.length(); ++q) {
-        if (inf[q] == '1' || inf[q] == '2' || inf[q] == '3' || inf[q] == '4' || inf[q] == '5' || inf[q] == '6' || inf[q] == '7' || inf[q] == '8' || inf[q] == '9' || inf[q] == '0' || inf[q] == ' ') {
+        if (inf[q] == '1' || inf[q] == '2' 
+            || inf[q] == '3' || inf[q] == '4' 
+            || inf[q] == '5' || inf[q] == '6' 
+            || inf[q] == '7' || inf[q] == '8' 
+            || inf[q] == '9' || inf[q] == '0' 
+            || inf[q] == ' ') {
             if (inf[q] == ' ') {
                 if (post[post.length() - 1] != ' ') {
                     post += inf[q];
@@ -29,7 +34,8 @@ std::string infx2pstfx(std::string inf) {
             }
             continue;
         }
-        if (prioritet(inf[q]) == 0 || isEmpty() || prioritet(inf[q]) > prioritet(Get())) {
+        if (prioritet(inf[q]) == 0 || isEmpty() 
+            || prioritet(inf[q]) > prioritet(Get())) {
             if (post[post.length() - 1] != ' ') {
                 post += ' ';
             }
@@ -68,10 +74,16 @@ std::string infx2pstfx(std::string inf) {
 int eval(std::string inf) {
     int post = 0, q = -1;
     for (int q = 0; q < inf.length(); ++q) {
-        if (inf[q] == '1' || inf[q] == '2' || inf[q] == '3' || inf[q] == '4' || inf[q] == '5' || inf[q] == '6' || inf[q] == '7' || inf[q] == '8' || inf[q] == '9' || inf[q] == '0' || inf[q] == ' ') {
+        if (inf[q] == '1' || inf[q] == '2' 
+            || inf[q] == '3' || inf[q] == '4' 
+            || inf[q] == '5' || inf[q] == '6' 
+            || inf[q] == '7' || inf[q] == '8' 
+            || inf[q] == '9' || inf[q] == '0' 
+            || inf[q] == ' ') {
             push(inf[q]);;
             continue;
-        } else if (inf[q] == '+' || inf[q] == '-' || inf[q] == '*' || inf[q] == '/') {
+        } else if (inf[q] == '+' || inf[q] == '-' 
+                   || inf[q] == '*' || inf[q] == '/') {
             char a = Pop();
             while (1) {
                 std::cout << a << " a" << std::endl;
@@ -91,7 +103,7 @@ int eval(std::string inf) {
                 a = Pop();
             }
             std::reverse(DopString1.begin(), DopString1.end());
-            std::istringstream (DopString1) >> x1;
+            std::istringstream(DopString1) >> x1;
             while (1) {
                 if (isEmpty()) {
                     break;
