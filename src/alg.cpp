@@ -90,7 +90,6 @@ int eval(std::string inf) {
                    || inf[q] == '*' || inf[q] == '/') {
             char a = stack1.Pop();
             while (1) {
-                std::cout << a << " a" << std::endl;
                 if (a == ' ') {
                     a = stack1.Pop();
                 } else {
