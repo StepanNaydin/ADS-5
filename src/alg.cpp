@@ -1,5 +1,6 @@
 // Copyright 2021 NNTU-CS
 #include <string>
+#include <iostream>
 #include <sstream>
 #include <map>
 #include "tstack.h"
@@ -15,7 +16,7 @@ int prioritet(char value) {
     return -1;
 }
 
-std::string Stack::infx2pstfx(std::string inf) {
+std::string infx2pstfx(std::string inf) {
     Stack<char, 100> stack1;
     std::string post;
     for (int q = 0; q < inf.length(); ++q) {
@@ -72,7 +73,7 @@ std::string Stack::infx2pstfx(std::string inf) {
     }
     return post;
 }
-int Stack::eval(std::string inf) {
+int eval(std::string inf) {
     Stack<char, 100> stack1;
     int post = 0, q = -1;
     for (int q = 0; q < inf.length(); ++q) {
