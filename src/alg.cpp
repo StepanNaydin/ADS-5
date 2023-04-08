@@ -45,11 +45,15 @@ std::string infx2pstfx(std::string inf) {
             stack1.push(inf[q]);
         } else if (inf[q] != ')') {
             while (!stack1.isEmpty()) {
+                if (post[post.length() - 1] != ' ') {
+                    post += ' ';
+                }
+                if (stack1.Get() == '(') {
+                    stack1.Pop();
+                    break;
+                }
                 if (prioritet(stack1.Get()) >= prioritet(inf[q])) {
                     post += stack1.Pop();
-                    if (post[post.length() - 1] != ' ') {
-                        post += ' ';
-                    }
                 }
             }
             stack1.push(inf[q]);
@@ -65,6 +69,12 @@ std::string infx2pstfx(std::string inf) {
                     break;
                 }
                 DopString += a;
+                if (DopString[DopString.length() - 1] != ' ') {
+                    DopString += ' ';
+                }
+                if (stack1.isEmpty()) {
+                    break;
+                }
             }
             post += DopString;
         }
