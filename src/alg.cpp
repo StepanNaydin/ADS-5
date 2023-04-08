@@ -54,9 +54,14 @@ std::string infx2pstfx(std::string inf) {
                 }
                 if (prioritet(stack1.Get()) >= prioritet(inf[q])) {
                     post += stack1.Pop();
+                } else {
+                    break;
                 }
             }
             stack1.push(inf[q]);
+            if (post[post.length() - 1] != ' ') {
+                post += ' ';
+            }
         }
         if (inf[q] == ')') {
             if (post[post.length() - 1] != ' ') {
